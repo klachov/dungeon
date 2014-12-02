@@ -6,12 +6,7 @@ import org.dungeon.io.IO;
 import org.dungeon.io.WriteStyle;
 import org.dungeon.utils.Utils;
 
-/**
- * AttackAlgorithm class that defines all the attack algorithms.
- * Specific attack algorithms are used by using invoking the AttackAlgorithm.attack() method with the right parameters.
- * <p/>
- * Created by bernardo on 29/09/14.
- */
+
  // Test
 public class AttackAlgorithm {
 
