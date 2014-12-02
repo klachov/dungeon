@@ -95,7 +95,6 @@ public class AttackAlgorithm {
         // The inflicted damage message cannot be here (what would avoid code duplication) as that would make it appear
         // after an eventual "weaponName broke" message, what looks really weird.
     }
-
     private static void heroAttack(Creature attacker, Creature defender) {
         Item weapon = attacker.getWeapon();
         int hitDamage;
