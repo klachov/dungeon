@@ -27,7 +27,7 @@ import org.dungeon.io.IO;
 import org.dungeon.io.WriteStyle;
 import org.dungeon.utils.Constants;
 import org.dungeon.utils.Utils;
-import org.joda.time.Period;
+//import org.joda.time.Period;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -417,7 +417,7 @@ public class Hero extends Creature {
     // TODO: Write tests to this function.
     // TODO: Extract to ageDiffToString (an util).
     public void printAge() {
-        Period p = new Period(getDateOfBirth().getTime(), getLocation().getWorld().getWorldDate().getTime());
+        /*Period p = new Period(getDateOfBirth().getTime(), getLocation().getWorld().getWorldDate().getTime());
         int years = p.getYears();
         int months = p.getMonths();
         int days = p.getDays();
@@ -457,8 +457,8 @@ public class Hero extends Creature {
             builder.append("Less than a day.");
         } else {
             builder.append(".");
-        }
-        IO.writeString(builder.toString(), WriteStyle.MARGIN);
+        }*/
+        IO.writeString("10", WriteStyle.MARGIN);
     }
 
     public void printDateAndTime() {
