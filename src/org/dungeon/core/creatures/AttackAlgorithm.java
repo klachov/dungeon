@@ -12,6 +12,7 @@ import org.dungeon.utils.Utils;
  * <p/>
  * Created by bernardo on 29/09/14.
  */
+ // Test
 public class AttackAlgorithm {
 
     public static void attack(Creature attacker, Creature defender, AttackAlgorithmID algorithm) {
@@ -94,7 +95,6 @@ public class AttackAlgorithm {
         // The inflicted damage message cannot be here (what would avoid code duplication) as that would make it appear
         // after an eventual "weaponName broke" message, what looks really weird.
     }
-
     private static void heroAttack(Creature attacker, Creature defender) {
         Item weapon = attacker.getWeapon();
         int hitDamage;
