@@ -21,6 +21,7 @@ import org.dungeon.core.game.Location;
 import org.dungeon.core.game.Selectable;
 import org.dungeon.core.items.Inventory;
 import org.dungeon.core.items.Item;
+import org.dungeon.core.items.Weapon;
 import org.dungeon.io.IO;
 import org.dungeon.io.WriteStyle;
 import org.dungeon.utils.Constants;
@@ -56,7 +57,7 @@ public class Creature implements Selectable, Serializable {
     private AttackAlgorithmID attackAlgorithm;
 
     private Inventory inventory;
-    private Item weapon;
+    private Weapon weapon;
 
     private Location location;
 
@@ -197,11 +198,11 @@ public class Creature implements Selectable, Serializable {
         this.inventory = inventory;
     }
 
-    public Item getWeapon() {
+    public Weapon getWeapon() {
         return weapon;
     }
 
-    public void setWeapon(Item weapon) {
+    public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
     }
 

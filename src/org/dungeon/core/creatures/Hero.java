@@ -20,14 +20,20 @@ package org.dungeon.core.creatures;
 import org.dungeon.core.counters.BattleLog;
 import org.dungeon.core.counters.CounterMap;
 import org.dungeon.core.game.TimeConstants;
+import org.dungeon.core.items.Clock;
+import org.dungeon.core.items.Food;
 import org.dungeon.core.items.FoodComponent;
 import org.dungeon.core.items.Inventory;
 import org.dungeon.core.items.Item;
+import org.dungeon.core.items.Weapon;
 import org.dungeon.io.IO;
 import org.dungeon.io.WriteStyle;
 import org.dungeon.utils.Constants;
 import org.dungeon.utils.Utils;
 //import org.joda.time.Period;
+
+
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -163,7 +169,7 @@ public class Hero extends Creature {
     //
     public Item selectInventoryItem(String[] inputWords) {
         if (inputWords.length == 1) {
-            return Utils.selectFromList(getInventory().getItems());
+            return Utils.selectFromList((List<Item>) getInventory().getItems());
         } else {
             Item queryResult = getInventory().findItem(inputWords[1]);
             if (queryResult == null) {
@@ -234,8 +240,8 @@ public class Hero extends Creature {
     public void parseEquip(String[] inputWords) {
         Item selectedItem = selectInventoryItem(inputWords);
         if (selectedItem != null) {
-            if (selectedItem.isWeapon()) {
-                equipWeapon(selectedItem);
+            if (selectedItem instanceof Weapon) {
+                equipWeapon((Weapon)selectedItem);
             } else {
                 IO.writeString("You cannot equip that.", WriteStyle.MARGIN);
             }
@@ -267,16 +273,17 @@ public class Hero extends Creature {
     public void eatItem(String[] inputWords) {
         Item selectedItem = selectInventoryItem(inputWords);
         if (selectedItem != null) {
-            if (selectedItem.isFood()) {
-                FoodComponent food = selectedItem.getFood();
+            if (selectedItem instanceof Food) {
+            	Food selectedFood = (Food) selectedItem;
+            	FoodComponent food = selectedFood.getFood();
                 addHealth(food.getNutrition());
-                selectedItem.decrementIntegrity(food.getIntegrityDecrementOnEat());
+                selectedFood.decrementIntegrity(food.getIntegrityDecrementOnEat());
                 // TODO: make not-enough-for-a-full-bite food heal less than a enough-for-a-full-bite food would.
-                if (selectedItem.isBroken() && !selectedItem.isRepairable()) {
-                    IO.writeString("You ate " + selectedItem.getName() + ".", WriteStyle.MARGIN);
-                    getInventory().removeItem(selectedItem);
+                if (selectedFood.isBroken() && !selectedFood.isRepairable()) {
+                    IO.writeString("You ate " + selectedFood.getName() + ".", WriteStyle.MARGIN);
+                    getInventory().removeItem(selectedFood);
                 } else {
-                    IO.writeString("You ate a bit of " + selectedItem.getName() + ".", WriteStyle.MARGIN);
+                    IO.writeString("You ate a bit of " + selectedFood.getName() + ".", WriteStyle.MARGIN);
                 }
                 if (isCompletelyHealed()) {
                     IO.writeString("You are completely healed.", WriteStyle.MARGIN);
@@ -315,17 +322,17 @@ public class Hero extends Creature {
 
     public boolean hasClock() {
         for (Item item : getInventory().getItems()) {
-            if (item.isClock()) {
+            if (item instanceof Clock) {
                 return true;
             }
         }
         return false;
     }
 
-    public Item getClock() {
+    public Clock getClock() {
         for (Item item : getInventory().getItems()) {
-            if (item.isClock()) {
-                return item;
+            if (item instanceof Clock) {
+                return (Clock) item;
             }
         }
         return null;
@@ -336,7 +343,7 @@ public class Hero extends Creature {
     // Weapon methods.
     //
     //
-    public void equipWeapon(Item weapon) {
+    public void equipWeapon(Weapon weapon) {
         if (hasWeapon()) {
             if (getWeapon() == weapon) {
                 IO.writeString(getName() + " is already equipping " + weapon.getName() + ".", WriteStyle.MARGIN);

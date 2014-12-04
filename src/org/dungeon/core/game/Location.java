@@ -19,6 +19,7 @@ package org.dungeon.core.game;
 import org.dungeon.core.creatures.Creature;
 import org.dungeon.core.creatures.CreaturePreset;
 import org.dungeon.core.items.Item;
+import org.dungeon.core.items.ItemFactory;
 import org.dungeon.core.items.ItemPreset;
 import org.dungeon.io.IO;
 import org.dungeon.io.WriteStyle;
@@ -56,7 +57,7 @@ public class Location implements Serializable {
             this.addCreature(Creature.createCreature(creaturePreset, 1));
         }
         for (ItemPreset itemPreset : preset.getItems()) {
-            this.addItem(Item.createItem(itemPreset));
+            this.addItem(ItemFactory.createItem(itemPreset));
         }
     }
 

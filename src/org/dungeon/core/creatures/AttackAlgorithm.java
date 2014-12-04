@@ -2,6 +2,7 @@ package org.dungeon.core.creatures;
 
 import org.dungeon.core.game.Game;
 import org.dungeon.core.items.Item;
+import org.dungeon.core.items.Weapon;
 import org.dungeon.io.IO;
 import org.dungeon.io.WriteStyle;
 import org.dungeon.utils.Utils;
@@ -61,7 +62,7 @@ public class AttackAlgorithm {
     }
 
     private static void undeadAttack(Creature attacker, Creature defender) {
-        Item weapon = attacker.getWeapon();
+        Weapon weapon = attacker.getWeapon();
         int hitDamage;
         // Check that there is a weapon and that it is not broken.
         if (weapon != null && !weapon.isBroken()) {
@@ -96,7 +97,7 @@ public class AttackAlgorithm {
     }
 
     private static void heroAttack(Creature attacker, Creature defender) {
-        Item weapon = attacker.getWeapon();
+        Weapon weapon = attacker.getWeapon();
         int hitDamage;
         // Check that there is a weapon and that it is not broken.
         if (weapon != null && !weapon.isBroken()) {

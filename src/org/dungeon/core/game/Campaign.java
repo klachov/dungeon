@@ -22,6 +22,7 @@ import org.dungeon.core.achievements.BattleAchievement;
 import org.dungeon.core.counters.CounterMap;
 import org.dungeon.core.creatures.*;
 import org.dungeon.core.items.Item;
+import org.dungeon.core.items.ItemFactory;
 import org.dungeon.core.items.ItemPreset;
 import org.dungeon.io.IO;
 import org.dungeon.io.WriteStyle;
@@ -186,7 +187,7 @@ public final class Campaign implements Serializable {
         world.addLocation(new Location("Forest", 0.7), forest);
 
         world.addCreature(campaignHero, forest);
-        world.addItem(Item.createItem(ItemPreset.STICK), forest);
+        world.addItem(ItemFactory.createItem(ItemPreset.STICK), forest);
 
         // Another forest location.
         Point forest2 = new Point(0, 1);
@@ -198,9 +199,9 @@ public final class Campaign implements Serializable {
         world.addCreature(Creature.createCreature(CreaturePreset.FROG, 1), forest2);
 
         // Weapons
-        world.addItem(Item.createItem(ItemPreset.SPEAR), forest2);
+        world.addItem(ItemFactory.createItem(ItemPreset.SPEAR), forest2);
         // Food
-        world.addItem(Item.createItem(ItemPreset.APPLE), forest2);
+        world.addItem(ItemFactory.createItem(ItemPreset.APPLE), forest2);
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Clearing (two locations)
@@ -215,9 +216,9 @@ public final class Campaign implements Serializable {
         world.addCreature(Creature.createCreature(CreaturePreset.SNAKE, 1), clearing);
 
         // Weapons
-        world.addItem(Item.createItem(ItemPreset.DAGGER), clearing);
+        world.addItem(ItemFactory.createItem(ItemPreset.DAGGER), clearing);
         // Food
-        world.addItem(Item.createItem(ItemPreset.CHERRY), clearing);
+        world.addItem(ItemFactory.createItem(ItemPreset.CHERRY), clearing);
 
         //Second clearing location.
         Point clearing2 = new Point(1, 2);
@@ -230,7 +231,7 @@ public final class Campaign implements Serializable {
         world.addCreature(Creature.createCreature(CreaturePreset.SPIDER, 1), clearing2);
 
         // Weapons
-        world.addItem(Item.createItem(ItemPreset.MACE), clearing2);
+        world.addItem(ItemFactory.createItem(ItemPreset.MACE), clearing2);
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Road to The Fort (two locations)
@@ -276,7 +277,7 @@ public final class Campaign implements Serializable {
         world.addCreature(Creature.createCreature(CreaturePreset.SKELETON, 1), caveEntrance);
 
         // Weapons
-        world.addItem(Item.createItem(ItemPreset.LONGSWORD), caveEntrance);
+        world.addItem(ItemFactory.createItem(ItemPreset.LONGSWORD), caveEntrance);
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Cave
@@ -293,9 +294,9 @@ public final class Campaign implements Serializable {
         world.addCreature(Creature.createCreature(CreaturePreset.SKELETON, 3), cave);
 
         // Weapons
-        world.addItem(Item.createItem(ItemPreset.STONE), cave);
+        world.addItem(ItemFactory.createItem(ItemPreset.STONE), cave);
         // Food
-        world.addItem(Item.createItem(ItemPreset.WATERMELON), cave);
+        world.addItem(ItemFactory.createItem(ItemPreset.WATERMELON), cave);
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Bridge
@@ -320,7 +321,7 @@ public final class Campaign implements Serializable {
         world.addCreature(Creature.createCreature(CreaturePreset.SPIDER, 3), lake);
 
         // Weapons
-        world.addItem(Item.createItem(ItemPreset.STAFF), lake);
+        world.addItem(ItemFactory.createItem(ItemPreset.STAFF), lake);
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Meadow
@@ -345,7 +346,7 @@ public final class Campaign implements Serializable {
         world.addCreatureArray(Creature.createCreatureArray(CreaturePreset.RAT, 2, 2), clearing3);
 
         // Weapons
-        world.addItem(Item.createItem(ItemPreset.AXE), clearing3);
+        world.addItem(ItemFactory.createItem(ItemPreset.AXE), clearing3);
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Graveyard

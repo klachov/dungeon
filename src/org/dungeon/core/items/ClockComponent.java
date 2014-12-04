@@ -12,7 +12,7 @@ import java.util.Date;
 public class ClockComponent implements Serializable {
 
     private static SimpleDateFormat dateTimeFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-    private Item master;
+    private Clock master;
 
     /** Used to store the date the clock had when it was broken. */
     private Date lastTime;
@@ -24,7 +24,7 @@ public class ClockComponent implements Serializable {
         this.lastTime = model.lastTime;
     }
 
-    public void setMaster(Item master) {
+    public void setMaster(Clock master) {
         this.master = master;
     }
 
